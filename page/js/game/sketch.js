@@ -1,3 +1,6 @@
 function setup() {
-	setInterval('saveData()', 5)
+  getData();
+  setInterval('saveData()', 5000);
+  createCanvas(1080, 720);
+  background(0);
 }

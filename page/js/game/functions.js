@@ -1,28 +1,50 @@
-var storage = {};
 var a;
+var storage;
+function fullscreenElem(elem) {
+  if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+} else if (elem.msRequestFullscreen) {
+  elem.msRequestFullscreen();
+} else if (elem.mozRequestFullScreen) {
+  elem.mozRequestFullScreen();
+} else if (elem.webkitRequestFullscreen) {
+  elem.webkitRequestFullscreen();
+}
+}
 
 function getData() {
   if (localStorage.getItem('data') === null) {
-    saveData();
-    storage = localStorage.getItem('data');
+    localStorage.setItem('data', '{}');
+    storage = JSON.parse(localStorage.getItem('data'));
     return storage;
   } else {
-    storage = localStorage.getItem('data');
+    storage = JSON.parse(localStorage.getItem('data'));
     return storage;
   }
 }
 
 function saveData() {
-  localStorage.setItem('data', storage);
+  localStorage.setItem('data', JSON.stringify(storage));
+  console.log('saved');
 }
 
 function declareVar(vari, val) {
   var thing1 = vari;
-  var thing2 = val
-  eval("storage."+thing1+" = "+thing2);
+  var thing2 = val;
+  if (getVar(thing1) === undefined) {
+    storage[thing1] = val;
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function getVar(vari) {
   var thing1 = vari
-  return storage[  ];
+  return storage[thing1];
+}
+
+function killVar(vari) {
+  var thing1 = vari;
+  delete storage[thing1];
 }
