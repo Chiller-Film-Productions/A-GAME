@@ -1,5 +1,7 @@
 var a;
 var storage;
+var transX = 0;
+var transY = 0;
 function fullscreenElem(elem) {
   if (elem.requestFullscreen) {
   elem.requestFullscreen();
@@ -47,4 +49,19 @@ function getVar(vari) {
 function killVar(vari) {
   var thing1 = vari;
   delete storage[thing1];
+}
+
+function moveBackground() {
+  if (keyIsDown(UP_ARROW) && transY <= 0) {
+    transY+=5;
+  }
+  if (keyIsDown(DOWN_ARROW && transY >= -4320)) {
+    transY-=5;
+  }
+  if (keyIsDown(RIGHT_ARROW) && transY <= 0) {
+    transX-=5;
+  }
+  if (keyIsDown(LEFT_ARROW)) {
+    transX+=5;
+  }
 }
