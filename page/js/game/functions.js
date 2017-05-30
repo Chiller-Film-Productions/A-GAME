@@ -52,13 +52,13 @@ function killVar(vari) {
 }
 
 function moveBackground() {
-  if (keyIsDown(UP_ARROW) && transY <= 0) {
+  if (keyIsDown(UP_ARROW)) {
     transY+=5;
   }
-  if (keyIsDown(DOWN_ARROW && transY >= -4320)) {
+  if (keyIsDown(DOWN_ARROW)) {
     transY-=5;
   }
-  if (keyIsDown(RIGHT_ARROW) && transY <= 0) {
+  if (keyIsDown(RIGHT_ARROW)) {
     transX-=5;
   }
   if (keyIsDown(LEFT_ARROW)) {
