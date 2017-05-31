@@ -35,20 +35,16 @@ function Var(vari, val) {
   var thing2 = val;
   if (getVar(thing1) === undefined) {
     storage[thing1] = val;
-    return true;
+    return false;
   } else {
     storage[thing1] = thing2;
+    return true;
   }
 }
 
 function getVar(vari) {
   var thing1 = vari
   return storage[thing1];
-}
-
-function killVar(vari) {
-  var thing1 = vari;
-  delete storage[thing1];
 }
 
 function moveBackground() {
