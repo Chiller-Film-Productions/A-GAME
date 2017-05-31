@@ -30,14 +30,14 @@ function saveData() {
   console.log('saved');
 }
 
-function declareVar(vari, val) {
+function Var(vari, val) {
   var thing1 = vari;
   var thing2 = val;
   if (getVar(thing1) === undefined) {
     storage[thing1] = val;
     return true;
   } else {
-    return false;
+    storage[thing1] = thing2;
   }
 }
 
@@ -77,7 +77,7 @@ function snapGrid(vect) {
     thing = gridSnapPlaces[i];
     if (pos.dist(best)>pos.dist(thing)) {
       close = pos.dist(best);
-      best = thing; 
+      best = thing;
     }
   }
   return best;
