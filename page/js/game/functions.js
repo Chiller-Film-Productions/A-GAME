@@ -65,3 +65,20 @@ function moveBackground() {
     transX+=5;
   }
 }
+var close;
+var pos;
+var thing;
+var best;
+function snapGrid(vect) {
+  pos = vect;
+  thing;
+  best = gridSnapPlaces[0];
+  for (var i = 0; i < gridSnapPlaces.length; i++) {
+    thing = gridSnapPlaces[i];
+    if (pos.dist(best)>pos.dist(thing)) {
+      close = pos.dist(best);
+      best = thing; 
+    }
+  }
+  return best;
+}
