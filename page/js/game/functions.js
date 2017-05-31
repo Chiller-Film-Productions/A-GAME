@@ -29,8 +29,10 @@ function saveData() {
   localStorage.setItem('data', JSON.stringify(storage));
   console.log('saved');
 }
-
-function Var(vari, val) {
+/* call this function to create or overwrite a variable that will be saved to local storage
+   syntax: vari('name', value);
+ */
+function vari(vari, val) {
   var thing1 = vari;
   var thing2 = val;
   if (getVar(thing1) === undefined) {
@@ -41,6 +43,10 @@ function Var(vari, val) {
     return true;
   }
 }
+
+/* return the value of a saved variable
+   syntax: getVar('name');
+ */
 
 function getVar(vari) {
   var thing1 = vari
@@ -65,6 +71,12 @@ var close;
 var pos;
 var thing;
 var best;
+
+/* returns the closest point on the grid to the point given
+   syntax: var vector = createVector(X, Y);
+           var closestGridPoint = snapGrid(vector);
+ */
+
 function snapGrid(vect) {
   pos = vect;
   thing;
