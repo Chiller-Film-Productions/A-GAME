@@ -29,28 +29,20 @@ function saveData() {
   localStorage.setItem('data', JSON.stringify(storage));
   console.log('saved');
 }
-/* call this function to create or overwrite a variable that will be saved to local storage
-   syntax: vari('name', value);
- */
-function vari(vari, val) {
-  var thing1 = vari;
+
+function vari(varia, val) {
+  var thing1 = varia;
   var thing2 = val;
-  if (getVar(thing1) === undefined) {
+  if (thing2 !== undefined) {
     storage[thing1] = val;
-    return false;
-  } else {
-    storage[thing1] = thing2;
-    return true;
-  }
+    return storage[thing1];
+ } else {
+  return storage[thing1];
+ }
 }
 
-/* return the value of a saved variable
-   syntax: getVar('name');
- */
-
-function getVar(vari) {
-  var thing1 = vari
-  return storage[thing1];
+function clearUserData() {
+  storage = {}
 }
 
 function moveBackground() {
@@ -66,17 +58,17 @@ function moveBackground() {
   if (keyIsDown(LEFT_ARROW)) {
     transX+=5;
   }
+  if (key === 'z' && keyIsPressed && scl) {
+    scl-=0.01;
+  }
+  if (key === 'x' && keyIsPressed) {
+    scl+=0.01
+  }
 }
 var close;
 var pos;
 var thing;
 var best;
-
-/* returns the closest point on the grid to the point given
-   syntax: var vector = createVector(X, Y);
-           var closestGridPoint = snapGrid(vector);
- */
-
 function snapGrid(vect) {
   pos = vect;
   thing;
