@@ -6,12 +6,8 @@ var scl = 1;
 function setup() {
   getData();
   setInterval('saveData()', 5000);
-  if (vari('money') === undefined) {
-  	vari('money', 0);
-  }
-  if (vari('moneyType') === undefined) {
-  	vari('moneyType', 'shekel');
-  }
+  newVari('money', 0);
+  newVari('moneyType', 'skekel');
   createCanvas(windowWidth*0.98, windowHeight*0.98);
   background(0);
   count = 0;

@@ -41,6 +41,14 @@ function vari(varia, val) {
  }
 }
 
+function newVari(varia, val) {
+  var thing1 = varia;
+  var thing2 = val;
+  if (vari(thing1) === undefined) {
+  	vari(thing1, thing2);
+  }
+}
+
 function clearUserData() {
   storage = {}
 }
