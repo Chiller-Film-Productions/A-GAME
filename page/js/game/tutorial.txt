@@ -22,3 +22,11 @@ clearUserData();
 deletes all stored data.
 
 SYNTAX: clearUserData();
+
+__________________________________________________________________________________________________________
+
+newVar();
+
+creates a stored variable only if it doesn't already exist.
+
+SYNTAX: newVar('name', value);
