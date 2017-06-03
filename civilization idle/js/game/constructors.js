@@ -9,3 +9,12 @@ function building(x, y, img, fun, intLength) {
     image(this.img, this.x, this.y, this.img.width, this.img.height);
   }
 }
+
+var placeThing = {
+	show: function() {
+		fill(255, 0, 0);
+		noStroke();
+		var thing = snapGrid(createVector(mouseX-transX, mouseY-transY));
+		ellipse(thing.x, thing.y, 10, 10);
+	}
+}

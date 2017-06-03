@@ -49,6 +49,10 @@ function newVari(varia, val) {
   }
 }
 
+function newBuilding(x, y, img, fun, intLength) {
+  buildings.push(new building(x, y, img, fun, intLength));
+}
+
 function clearUserData() {
   storage = {}
 }
