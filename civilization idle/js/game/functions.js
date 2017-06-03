@@ -66,10 +66,10 @@ function moveBackground() {
   if (keyIsDown(LEFT_ARROW)) {
     transX+=5;
   }
-  if (key === 'z' && keyIsPressed && scl) {
+  if (key === 'x' && keyIsPressed) {
     scl-=0.01;
   }
-  if (key === 'x' && keyIsPressed) {
+  if (key === 'z' && keyIsPressed) {
     scl+=0.01
   }
 }

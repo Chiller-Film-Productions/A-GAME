@@ -2,14 +2,13 @@ var back;
 var gridSnapPlaces = [];
 var count;
 var scl = 1;
-var test;
-var rainbowPue;
 function setup() {
   getData();
   setInterval('saveData()', 5000);
   newVari('money', 0);
   newVari('muffins', 0);
-  newVari('moneyType', 'skekel');
+  newVari('moneyType', 'skekels');
+  newVari('gems', 0);
   createCanvas(windowWidth*0.98, windowHeight*0.98);
   background(0);
   for (var i = 0; i<7680; i+=32) {
@@ -17,7 +16,6 @@ function setup() {
   		gridSnapPlaces.push(createVector(i, j));
   	}
   }
-  test = new building(100, 100, rainbowPue, 'muffins++');
 }
 
 function draw() {
@@ -28,12 +26,11 @@ function draw() {
 	fill(255, 0, 0);
 	textSize(24);
 	text('you have '+vari('money')+' '+vari('moneyType'), 30-transX, 30-transY);
-  test.show();
+  text('you have '+vari('gems')+' gems', 30-transX, 60-transY);
 }
 
 function preload() {
 	back = loadImage('assets/grass.gif');
-  rainbowPue = loadImage('assets/poop pinj.png');
 }
 
 function windowResized() {
