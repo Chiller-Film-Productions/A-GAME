@@ -14,12 +14,13 @@ function setup() {
   newVari('gems', 0);
   cnv = createCanvas(windowWidth*0.98, windowHeight*0.98);
   background(0);
-  for (var i = 0; i<7680; i+=32) {
-  	for (var j = 0; j<4320; j+=32) {
+  for (var i = 0; i<7680; i+=128) {
+  	for (var j = 0; j<4320; j+=128) {
   		gridSnapPlaces.push(createVector(i, j));
   	}
   }
-  document.getElementById('')
+  var thinga = document.getElementById('game');
+  cnv.parent(thinga);
 }
 
 function draw() {

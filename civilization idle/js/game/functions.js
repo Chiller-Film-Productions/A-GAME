@@ -58,16 +58,16 @@ function clearUserData() {
 }
 
 function moveBackground() {
-  if (keyIsDown(UP_ARROW)) {
+  if (keyIsDown(UP_ARROW) && transY < 0) {
     transY+=5;
   }
-  if (keyIsDown(DOWN_ARROW)) {
+  if (keyIsDown(DOWN_ARROW) && abs(transY) < 2160-windowHeight*0.98) {
     transY-=5;
   }
-  if (keyIsDown(RIGHT_ARROW)) {
+  if (keyIsDown(RIGHT_ARROW) && abs(transX) < 3840-windowWidth*0.98) {
     transX-=5;
   }
-  if (keyIsDown(LEFT_ARROW)) {
+  if (keyIsDown(LEFT_ARROW) && transX < 0) {
     transX+=5;
   }
   if (key === 'x' && keyIsPressed) {
@@ -81,16 +81,20 @@ var close;
 var pos;
 var thing;
 var best;
+var thingapoo;
 function snapGrid(vect) {
   pos = vect;
   thing;
   best = gridSnapPlaces[0];
+  for (var j = building.length - 1; j >= 0; j--) {
+    thingapoo = building[j];
   for (var i = 0; i < gridSnapPlaces.length; i++) {
     thing = gridSnapPlaces[i];
-    if (pos.dist(best)>pos.dist(thing)) {
+    if (pos.dist(best)>pos.dist(thing) && thing !== thingapoo) {
       close = pos.dist(best);
       best = thing;
     }
   }
   return best;
+}
 }
