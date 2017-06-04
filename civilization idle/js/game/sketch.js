@@ -8,10 +8,11 @@ var cnv;
 function setup() {
   getData();
   setInterval('saveData()', 5000);
-  newVari('money', 0);
-  newVari('muffins', 0);
+  newVari('money', 100);
+  newVari('food', 1000);
   newVari('moneyType', 'skekels');
-  newVari('gems', 0);
+  newVari('gems', 10);
+  newVari('XP', 0);
   cnv = createCanvas(windowWidth*0.98, windowHeight*0.98);
   background(0);
   for (var i = 0; i<7680; i+=128) {
@@ -31,7 +32,8 @@ function draw() {
 	fill(255, 0, 0);
 	textSize(24);
 	text('you have '+vari('money')+' '+vari('moneyType'), 30-transX, 30-transY);
-  text('you have '+vari('gems')+' gems', 30-transX, 60-transY);
+  text('you have '+vari('gems')+' gems!', 30-transX, 60-transY);
+  text('you have '+vari('XP')+' XP!')
   for (var i = buildings.length - 1; i >= 0; i--) {
     buildings[i].show();
   }
