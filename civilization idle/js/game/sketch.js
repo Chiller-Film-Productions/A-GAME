@@ -3,8 +3,9 @@ var gridSnapPlaces = [];
 var count;
 var scl = 1;
 var buildings = [];
-var placing = true;
+var placing = false;
 var cnv;
+var hamme;
 function setup() {
   getData();
   setInterval('saveData()', 5000);
@@ -22,28 +23,16 @@ function setup() {
   }
   var thinga = document.getElementById('game');
   cnv.parent(thinga);
+  hamme = new button(windowWidth*0.98-150, 30, hammur);
 }
 
 function draw() {
-	moveBackground();
-	scale(scl);
-	translate(transX, transY);
-	image(back, 0, 0, 3840, 2160);
-	fill(255, 0, 0);
-	textSize(24);
-	text('you have '+vari('money')+' '+vari('moneyType'), 30-transX, 30-transY);
-  text('you have '+vari('gems')+' gems!', 30-transX, 60-transY);
-  text('you have '+vari('XP')+' XP!')
-  for (var i = buildings.length - 1; i >= 0; i--) {
-    buildings[i].show();
-  }
-  if (placing) {
-    placeThing.show();
-  }
+  drawStuff();
 }
 
 function preload() {
 	back = loadImage('assets/grass.gif');
+  hammur = loadImage('assets/hammer.png')
 }
 
 function windowResized() {
