@@ -23,8 +23,7 @@ function button(x, y, img) {
     this.x = x;
     this.y = y;
     this.show = function() {
-        fill(0, 0, 0);
-        image(this.img, this.x-transX, this.y-transY);
+        image(this.img, this.x+transX, this.y+transY);
     }
     this.testClick = function() {
         if (mouseX >= this.img.width && mouseX <= this.x-transX + this.img.width && mouseIsPressed) {
@@ -37,4 +36,21 @@ function button(x, y, img) {
             return false;
         }
     }
+}
+
+function buildingButton(x, y, label, price, img, fun, intLength) {
+  this.selected = false;
+  this.x = x;
+  this.y = y;
+  this.label = label;
+  this.price = price;
+  this.img = img;
+  this.fun = fun;
+  this.intLength = intLength;
+  this.button = new button(this.x, this.y, boxy)
+  this.show = function {
+    if (placing) {
+      this.button.show();
+    }
+  }
 }

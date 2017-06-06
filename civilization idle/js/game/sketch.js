@@ -6,6 +6,8 @@ var buildings = [];
 var placing = false;
 var cnv;
 var hamme;
+var boxy;
+var test;
 function setup() {
   getData();
   setInterval('saveData()', 5000);
@@ -24,6 +26,7 @@ function setup() {
   var thinga = document.getElementById('game');
   cnv.parent(thinga);
   hamme = new button(windowWidth*0.98-150, 30, hammur);
+  test = new buildingButton(100, 100);
 }
 
 function draw() {
@@ -32,7 +35,8 @@ function draw() {
 
 function preload() {
 	back = loadImage('assets/grass.gif');
-  hammur = loadImage('assets/hammer.png')
+  hammur = loadImage('assets/hammer.png');
+  boxy = loadImage('assets/box.png')
 }
 
 function windowResized() {

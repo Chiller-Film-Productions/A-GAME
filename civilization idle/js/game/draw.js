@@ -1,5 +1,7 @@
 function drawStuff() {
+	if (!placing) {
 	moveBackground();
+	}
 	scale(scl);
 	translate(transX, transY);
 	image(back, 0, 0, 3840, 2160);
@@ -18,4 +20,5 @@ function drawStuff() {
     if (hamme.testClick()) {
     	if (placing) {placing = false} else {placing = true}
     }
+    test.show();
 }
