@@ -48,7 +48,7 @@ function buildingButton(x, y, label, price, img, fun, intLength) {
   this.fun = fun;
   this.intLength = intLength;
   this.button = new button(this.x, this.y, boxy)
-  this.show = function {
+  this.show = function() {
     if (placing) {
       this.button.show();
     }

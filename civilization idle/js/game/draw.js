@@ -1,4 +1,4 @@
-function drawStuff() {
+function draw() {
 	if (!placing) {
 	moveBackground();
 	}

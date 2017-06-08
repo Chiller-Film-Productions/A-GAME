@@ -29,10 +29,6 @@ function setup() {
   test = new buildingButton(100, 100);
 }
 
-function draw() {
-  drawStuff();
-}
-
 function preload() {
 	back = loadImage('assets/grass.gif');
   hammur = loadImage('assets/hammer.png');
