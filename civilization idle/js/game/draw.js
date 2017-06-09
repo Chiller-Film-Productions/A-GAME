@@ -21,4 +21,5 @@ function draw() {
     	if (placing) {placing = false} else {placing = true}
     }
     test.show();
+    console.log(placing);
 }

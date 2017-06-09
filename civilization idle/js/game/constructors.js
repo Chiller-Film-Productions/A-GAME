@@ -47,10 +47,10 @@ function buildingButton(x, y, label, price, img, fun, intLength) {
   this.img = img;
   this.fun = fun;
   this.intLength = intLength;
-  this.button = new button(this.x, this.y, boxy)
+  this.butthon = new button(this.x, this.y, boxy)
   this.show = function() {
     if (placing) {
-      this.button.show();
+      this.butthon.show();
     }
   }
 }
