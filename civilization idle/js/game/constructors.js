@@ -22,17 +22,25 @@ function button(x, y, img) {
     this.img = img;
     this.x = x;
     this.y = y;
+    this.pclick = false;
     this.show = function() {
-        image(this.img, this.x+transX, this.y+transY);
+        image(this.img, this.x-transX, this.y-transY);
     }
     this.testClick = function() {
         if (mouseX >= this.img.width && mouseX <= this.x-transX + this.img.width && mouseIsPressed) {
-            if (mouseY >= this.y-transY && mouseY <= this.y-transY + this.img.height) {
+            if (mouseY >= this.y-transY && mouseY <= this.y-transY + this.img.height && !this.pclick) {
+                this.pclick = true;
                 return true;
             } else {
+                if (this.pclick && !mouseIsPressed) {
+                  this.pclick = false;
+                }
                 return false;
             }
         } else {
+            if (this.pclick && !mouseIsPressed) {
+              this.pclick = false;
+            }
             return false;
         }
     }

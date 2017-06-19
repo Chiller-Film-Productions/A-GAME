@@ -61,19 +61,19 @@ function moveBackground() {
   if (keyIsDown(UP_ARROW) && transY < 0) {
     transY+=5;
   }
-  if (keyIsDown(DOWN_ARROW) && abs(transY) < 2160-windowHeight*0.98) {
+  if (keyIsDown(DOWN_ARROW) && abs(transY) < 2160-windowHeight*0.98*scl) {
     transY-=5;
   }
-  if (keyIsDown(RIGHT_ARROW) && abs(transX) < 3840-windowWidth*0.98) {
+  if (keyIsDown(RIGHT_ARROW) && abs(transX) < 3840-windowWidth*0.98*pow(scl, -1)) {
     transX-=5;
   }
   if (keyIsDown(LEFT_ARROW) && transX < 0) {
     transX+=5;
   }
-  if (key === 'x' && keyIsPressed) {
+  if (key === 'x' && keyIsPressed && scl>=0.5) {
     scl-=0.01;
   }
-  if (key === 'z' && keyIsPressed) {
+  if (key === 'z' && keyIsPressed && scl<=2) {
     scl+=0.01
   }
 }
