@@ -71,10 +71,10 @@ function moveBackground() {
     transX+=5;
   }
   if (key === 'x' && keyIsPressed && scl>=0.5) {
-    scl-=0.01;
+    scl-=0.0;
   }
   if (key === 'z' && keyIsPressed && scl<=2) {
-    scl+=0.01
+    scl+=0.0;
   }
 }
 var close;
