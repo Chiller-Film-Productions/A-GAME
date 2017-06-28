@@ -1,0 +1,42 @@
+<!DOCTYPE html lang="en">
+<head>
+  <meta name="google-site-verification" content="123Nfq25Ou-1mVnSvMCDpS4MmKmLWlFhu7_z0esQzsQ" />
+  <link rel="shortcut icon" href="tfp icon.png" />
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <title>Thriller Films Create Account</title>
+  <script src='newAccount.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js'></script>
+  <script src='libraries/p5/p5.js'></script>
+  <script src='libraries/p5/p5.dom.js'></script>
+  <script src='libraries/p5/p5.sound.js'></script>
+</head>
+<body>
+   <img src="images/animated-banner.gif" alt="Games" style="width: 100%;">
+  <nav class="sidebar">
+    <ul id="sidebar-table" style="list-style: none; padding: 0; margin:auto; width: 105px">
+      <li class="nav-li">
+        <a href="index.html">
+          <img src="images/Home button.gif" alt="Home">
+        </a>
+      </li>
+      <li class="nav-li">
+        <a href="trailers.html">
+          <img src="images/Trailers button.gif" alt="Trailers">
+        </a>
+      </li>
+      <li class="nav-li">
+        <a href="products.html">
+          <img src="images/Products button.gif" alt="Products">
+        </a>
+      </li>
+    </ul>
+  </nav>
+   <form>
+     username: <input type='text' id='username'><br /><br />
+     password: <input type='password' id='passwordA'><br /><br />
+     confirm password: <input type='password' id='passwordB'><br /><br />
+     <input type='button' value='submit' onclick='createAccount(getElement("username").value, getElement("passwordA").value, getElement("passwordB").value)'>
+   </form>
+  </body>
+  </html>
