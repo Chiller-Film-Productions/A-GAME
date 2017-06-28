@@ -18,8 +18,8 @@ function setup() {
   newVari('XP', 0);
   cnv = createCanvas(windowWidth*0.98, windowHeight*0.98);
   background(0);
-  for (var i = 0; i<7680; i+=128) {
-  	for (var j = 0; j<4320; j+=128) {
+  for (var i = 0; i<7680; i+=256) {
+  	for (var j = 0; j<4320; j+=256) {
   		gridSnapPlaces.push(createVector(i, j));
   	}
   }
