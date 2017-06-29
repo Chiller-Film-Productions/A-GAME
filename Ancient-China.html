@@ -5,6 +5,12 @@
   <link rel="stylesheet" type="text/css" href="main.css">
   <link rel="shortcut icon" href="tfp icon.png" />
   <title>thriller films china project</title>
+  <script>var commentPage = 'china';</script>
+  <script src='comments.js'></script>
+  <script src='login/libraries/p5/p5.js'></script>
+  <script src='login/libraries/p5/p5.dom.js'></script>
+  <script src='login/libraries/p5/p5.sound.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js'></script>
 </head>
 <body>
   <nav class="sidebar">
@@ -40,9 +46,9 @@
     <h3>Ratings</h3><!-- start Star Ratings -->
 <script data-sil-id='58938eb483ed9f0015b12f1b'> (function() {var d = document, w = window, l = window.location,p = l.protocol == 'file:' ? 'http://' : '//';if (!w.WS) w.WS = {}; c = w.WS;var m=function(t, o){  var e = d.getElementsByTagName('script'); e=e[e.length-1];  var n = d.createElement(t); if (t=='script') {n.async=true;} for (k in o) n[k] = o[k];  e.parentNode.insertBefore(n, e)};   m('script', {      src: p+'bawkbox.com/widget/star-rating/58938eb483ed9f0015b12f1b?page='+encodeURIComponent(l+''),      type: 'text/javascript'  });  c.load_net = m;})();</script><div class='sil-widget-star-rating sil-widget' id='sil-widget-58938eb483ed9f0015b12f1b'<a href='https://bawkbox.com/install/star-rating'>Star Ratings is loading...</a></div>
 <!-- end Star Ratings -->
-    <!-- begin wwww.htmlcommentbox.com -->
- <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...</div>
- <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
- <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1485987611189");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+    <div id='postComment'><p>POST COMMENT</p>
+    <textarea id='commentCom' rows="5" cols="24"></textarea><p id='charcount'></p>
+    <button id='postComment' onclick='postComment(getElement("commentCom"));'>post comment</button></div><br />
+    <div id='comments'>COMMENTS</div>
   </body>
   </html>

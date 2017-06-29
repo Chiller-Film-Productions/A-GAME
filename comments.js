@@ -1,10 +1,17 @@
 var eyed;
+var maxFlags;
+var datap
 
 function setup() {
 	socket = io.connect(document.location.host);
 	socket.on('comments', displayComments);
 	socket.on('yourId', storeId);
-	socket.on('commentSuccess', testSuccess)
+	socket.on('commentSuccess', testSuccess);
+	createP('Max number of flags for a comment to get displayed').parent('comments');
+	maxFlags = createInput(2).changed(redisplayComments);
+	maxFlags.attribute('type', 'number');
+	maxFlags.parent('comments');
+	createElement('br').parent('comments');
 }
 
 function draw() {
@@ -13,9 +20,10 @@ function draw() {
 }
 
 function displayComments(data) {
-	var datap = JSON.parse(data);
-	var come = datap[commentPage];
+	datap = JSON.parse(data);
+	var come = datap[commentPage].sort(compare);
 	for (var i = 0; i < come.length; i++) {
+		if (come[i].flags <= parseInt(maxFlags.value()))
 		displayComment(come[i]);
 	}
 }
@@ -25,6 +33,8 @@ var namey;
 function displayComment(data) {
 	if (typeof data.name == 'object') {
 	  namey = data.name.toString().slice(0, data.name.length-6);
+  } else {
+  	namey = data.name.slice(0, data.name.length-5);
   }
 	var container = createDiv('');
 	container.parent(getElement('comments'));
@@ -61,7 +71,24 @@ function postComment(data) {
 function testSuccess(data) {
 	if (data) {
 		alert('comment posted successfully! :-D');
+		location.reload();
 	} else {
-		alert('comment posted unsuccessfully');
+		alert('comment posted unsuccessfully. You probably used a swear word in your comment.');
 	}
+}
+
+function compare(a, b) {
+	return b.totalLike-a.totalLike;
+}
+
+function redisplayComments() {
+	var val = parseInt(maxFlags.value())
+	getElement('comments').innerHTML = 'COMMENTS'
+	createP('Max number of flags for a comment to get displayed').parent('comments');
+	maxFlags = createInput(2).changed(redisplayComments);
+	maxFlags.attribute('type', 'number');
+	maxFlags.parent('comments');
+	createElement('br').parent('comments');
+	maxFlags.value(val);
+	displayComments(JSON.stringify(datap));
 }
