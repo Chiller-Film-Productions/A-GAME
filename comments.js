@@ -1,6 +1,8 @@
 var eyed;
 var maxFlags;
-var datap
+var datap;
+var flag;
+var like;
 
 function setup() {
 	socket = io.connect(document.location.host);
@@ -26,6 +28,25 @@ function displayComments(data) {
 		if (come[i].flags <= parseInt(maxFlags.value()))
 		displayComment(come[i]);
 	}
+	flag = selectClass('flag');
+  for (var i = 0; i < flag.length; i++) {
+  	flag[i].style.position = 'relative';
+  	flag[i].style.left = '2em';
+  	flag[i].setAttribute('onmouseover', "this.src = 'images/flag blue.png'");
+  	flag[i].setAttribute('onmouseout', "this.src = 'images/flag.png'");
+  }
+  dislike = selectClass('dislike');
+  for (var i = 0; i < dislike.length; i++) {
+  	dislike[i].style.position = 'relative';
+  	dislike[i].style.left = '1em';
+  	dislike[i].setAttribute('onmouseover', "this.src = 'images/thumbs down icon blue.png'");
+  	dislike[i].setAttribute('onmouseout', "this.src = 'images/thumbs down icon.png'");
+  }
+  like = selectClass('like');
+  for (var i = 0; i < like.length; i++) {
+  	like[i].setAttribute('onmouseover', "this.src = 'images/thumbs up icon blue.png'");
+  	like[i].setAttribute('onmouseout', "this.src = 'images/thumbs up icon.png'");
+  }
 }
 
 var namey;
@@ -38,10 +59,22 @@ function displayComment(data) {
   }
 	var container = createDiv('');
 	container.parent(getElement('comments'));
+	container.style('position', 'relative');
 	var title = createP(namey);
 	title.parent(container);
 	var com = createP(data.com);
 	com.parent(container);
+	if (sessionStorage.getItem('loginData')) {
+	var like = createImg('http://'+window.location.hostname+'/images/thumbs up icon.png');
+	like.parent(container);
+	like.class('like');
+	var dislike = createImg('http://'+window.location.hostname+'/images/thumbs down icon.png');
+	dislike.parent(container);
+	dislike.class('dislike');
+	var flag = createImg('http://'+window.location.hostname+'/images/flag.png');
+	flag.parent(container);
+	flag.class('flag');
+  }
 	container.style('width', '30em');
 	container.style('word-wrap', 'break-word');
 	container.style('outline-style', 'solid');
@@ -91,4 +124,22 @@ function redisplayComments() {
 	createElement('br').parent('comments');
 	maxFlags.value(val);
 	displayComments(JSON.stringify(datap));
+}
+
+function selectClass(classs) {
+	return document.getElementsByClassName(classs)
+}
+
+function doCommentActivity(doo, idd) {
+	dataeap = {
+		loginData: sessionStorage.getItem('loginData');
+		id:idd
+	}
+	if (doo > 0) {
+		socket.emit('likeComment', dataeap);
+	} else if (doo < 0) {
+		socket.emit('dislikeComment', dataeap);
+	} else if (doo == 0) {
+		socket.emit('flagComment', dataeap);
+	}
 }
